@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import store from "./storage";
+import store from "./reduxstorage";
 import ReduxExample from "./ReduxExample";
 
 function App(props) {

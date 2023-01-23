@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, incrementByAmount } from "./recordSlice";
+import { increment, decrement, incrementByAmount } from "./reduxslice";
 
 export default function ReduxExample(props) {
   const records = useSelector(function (store) {
@@ -9,7 +9,7 @@ export default function ReduxExample(props) {
 
   return (
     <div>
-      <p>{records}</p> 
+      <p>{records}</p>
       <button onClick={() => dispatch(increment())}>Add 1</button>
       <button onClick={() => dispatch(decrement())}>Minus 1</button>
       <button onClick={() => dispatch(incrementByAmount(10))}>
