@@ -1,16 +1,20 @@
-import { Provider } from "react-redux";
-import store from "./storage";
-import RecordsReducer from "./RecordReducer";
-import UseReducer from "./UseReducer";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement, incrementByAmount } from "./recordSlice";
 
-export default function ReduxExample() {
- 
+export default function ReduxExample(props) {
+  const records = useSelector(function (store) {
+    return store.record.value;
+  });
+  const dispatch = useDispatch();
+
   return (
-    <Provider store={store}>
-      <div>
-        <p style={{ backgroundColor: "lightgray" }}>Redux Example2</p>
-        <UseReducer />
-      </div>
-    </Provider>
+    <div>
+      <p>{records}</p> 
+      <button onClick={() => dispatch(increment())}>Add 1</button>
+      <button onClick={() => dispatch(decrement())}>Minus 1</button>
+      <button onClick={() => dispatch(incrementByAmount(10))}>
+        increment By 10
+      </button>
+    </div>
   );
 }

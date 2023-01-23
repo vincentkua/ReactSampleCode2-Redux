@@ -1,10 +1,15 @@
+import { Provider } from "react-redux";
+import store from "./storage";
 import ReduxExample from "./ReduxExample";
 
 function App(props) {
   return (
-    <div>
-      <ReduxExample />
-    </div>
+    <Provider store={store}>
+      <div>
+        <p style={{ backgroundColor: "lightgray" }}>Redux Example</p>
+        <ReduxExample />
+      </div>
+    </Provider>
   );
 }
 
